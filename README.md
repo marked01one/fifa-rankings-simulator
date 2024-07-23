@@ -1,1 +1,1 @@
-# fifa-rankings-simulator
+# FIFA Rankings Simulator
