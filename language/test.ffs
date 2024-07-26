@@ -1,0 +1,8 @@
+rule AFCON_GROUP = { $sig -> 35; $ko -> false; $size -> 4; }
+
+with !AFCON_GROUP { NGR-SEN -> 3-3; }
+
+with { $sig -> 10; $ko -> false; } { 
+    
+}
+

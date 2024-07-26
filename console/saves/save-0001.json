@@ -4,197 +4,227 @@
         {
             "name": "Belgium",
             "confederation": "UEFA",
-            "points": 1727
-        },
-        {
-            "name": "France",
-            "confederation": "UEFA",
-            "points": 1726
+            "points": 1735
         },
         {
             "name": "Brazil",
             "confederation": "CONMEBOL",
-            "points": 1676
-        },
-        {
-            "name": "Croatia",
-            "confederation": "UEFA",
-            "points": 1634
-        },
-        {
-            "name": "England",
-            "confederation": "UEFA",
-            "points": 1631
-        },
-        {
-            "name": "Portugal",
-            "confederation": "UEFA",
-            "points": 1614
-        },
-        {
-            "name": "Uruguay",
-            "confederation": "CONMEBOL",
-            "points": 1609
-        },
-        {
-            "name": "Switzerland",
-            "confederation": "UEFA",
-            "points": 1599
-        },
-        {
-            "name": "Spain",
-            "confederation": "UEFA",
-            "points": 1591
-        },
-        {
-            "name": "Denmark",
-            "confederation": "UEFA",
-            "points": 1589
-        },
-        {
-            "name": "Argentina",
-            "confederation": "CONMEBOL",
-            "points": 1582
-        },
-        {
-            "name": "Colombia",
-            "confederation": "CONMEBOL",
-            "points": 1575
-        },
-        {
-            "name": "Iran",
-            "confederation": "AFC",
-            "points": 1574
-        },
-        {
-            "name": "Chile",
-            "confederation": "CONMEBOL",
-            "points": 1565
-        },
-        {
-            "name": "Sweden",
-            "confederation": "UEFA",
-            "points": 1560
-        },
-        {
-            "name": "Netherlands",
-            "confederation": "UEFA",
-            "points": 1560
-        },
-        {
-            "name": "Germany",
-            "confederation": "UEFA",
-            "points": 1558
-        },
-        {
-            "name": "Mexico",
-            "confederation": "CONCACAF",
-            "points": 1540
+            "points": 1723
         },
         {
             "name": "Italy",
             "confederation": "UEFA",
-            "points": 1539
+            "points": 1713
+        },
+        {
+            "name": "France",
+            "confederation": "UEFA",
+            "points": 1702
+        },
+        {
+            "name": "England",
+            "confederation": "UEFA",
+            "points": 1700
+        },
+        {
+            "name": "Denmark",
+            "confederation": "UEFA",
+            "points": 1640
+        },
+        {
+            "name": "Iran",
+            "confederation": "AFC",
+            "points": 1639
+        },
+        {
+            "name": "Portugal",
+            "confederation": "UEFA",
+            "points": 1639
+        },
+        {
+            "name": "Uruguay",
+            "confederation": "CONMEBOL",
+            "points": 1632
+        },
+        {
+            "name": "Colombia",
+            "confederation": "CONMEBOL",
+            "points": 1631
+        },
+        {
+            "name": "Spain",
+            "confederation": "UEFA",
+            "points": 1631
+        },
+        {
+            "name": "Sweden",
+            "confederation": "UEFA",
+            "points": 1626
+        },
+        {
+            "name": "Croatia",
+            "confederation": "UEFA",
+            "points": 1625
+        },
+        {
+            "name": "Mexico",
+            "confederation": "CONCACAF",
+            "points": 1624
+        },
+        {
+            "name": "Switzerland",
+            "confederation": "UEFA",
+            "points": 1615
+        },
+        {
+            "name": "Netherlands",
+            "confederation": "UEFA",
+            "points": 1606
         },
         {
             "name": "Wales",
             "confederation": "UEFA",
-            "points": 1525
+            "points": 1582
         },
         {
-            "name": "Poland",
+            "name": "Germany",
             "confederation": "UEFA",
-            "points": 1518
-        },
-        {
-            "name": "Peru",
-            "confederation": "CONMEBOL",
-            "points": 1518
-        },
-        {
-            "name": "Austria",
-            "confederation": "UEFA",
-            "points": 1509
-        },
-        {
-            "name": "Senegal",
-            "confederation": "CAF",
-            "points": 1505
-        },
-        {
-            "name": "Romania",
-            "confederation": "UEFA",
-            "points": 1501
-        },
-        {
-            "name": "United States",
-            "confederation": "CONCACAF",
-            "points": 1497
-        },
-        {
-            "name": "Tunisia",
-            "confederation": "CAF",
-            "points": 1493
-        },
-        {
-            "name": "Slovakia",
-            "confederation": "UEFA",
-            "points": 1483
+            "points": 1578
         },
         {
             "name": "Ukraine",
             "confederation": "UEFA",
-            "points": 1482
+            "points": 1577
         },
         {
-            "name": "Serbia",
+            "name": "Chile",
+            "confederation": "CONMEBOL",
+            "points": 1560
+        },
+        {
+            "name": "Austria",
             "confederation": "UEFA",
-            "points": 1481
+            "points": 1543
+        },
+        {
+            "name": "Senegal",
+            "confederation": "CAF",
+            "points": 1542
+        },
+        {
+            "name": "Argentina",
+            "confederation": "CONMEBOL",
+            "points": 1541
+        },
+        {
+            "name": "Poland",
+            "confederation": "UEFA",
+            "points": 1526
+        },
+        {
+            "name": "Peru",
+            "confederation": "CONMEBOL",
+            "points": 1510
+        },
+        {
+            "name": "Romania",
+            "confederation": "UEFA",
+            "points": 1497
         },
         {
             "name": "Venezuela",
             "confederation": "CONMEBOL",
-            "points": 1478
-        },
-        {
-            "name": "Paraguay",
-            "confederation": "CONMEBOL",
-            "points": 1476
-        },
-        {
-            "name": "Republic of Ireland",
-            "confederation": "UEFA",
-            "points": 1474
-        },
-        {
-            "name": "Bosnia-Herzegovina",
-            "confederation": "UEFA",
-            "points": 1472
-        },
-        {
-            "name": "Northern Ireland",
-            "confederation": "UEFA",
-            "points": 1465
+            "points": 1495
         },
         {
             "name": "Costa Rica",
             "confederation": "CONCACAF",
-            "points": 1464
+            "points": 1492
+        },
+        {
+            "name": "Serbia",
+            "confederation": "UEFA",
+            "points": 1489
         },
         {
             "name": "Japan",
             "confederation": "AFC",
-            "points": 1460
+            "points": 1488
+        },
+        {
+            "name": "United States",
+            "confederation": "CONCACAF",
+            "points": 1485
+        },
+        {
+            "name": "Vietnam",
+            "confederation": "AFC",
+            "points": 1484
+        },
+        {
+            "name": "Tunisia",
+            "confederation": "CAF",
+            "points": 1483
+        },
+        {
+            "name": "Nigeria",
+            "confederation": "CAF",
+            "points": 1483
+        },
+        {
+            "name": "Czechia",
+            "confederation": "UEFA",
+            "points": 1482
+        },
+        {
+            "name": "Algeria",
+            "confederation": "CAF",
+            "points": 1471
+        },
+        {
+            "name": "Northern Ireland",
+            "confederation": "UEFA",
+            "points": 1469
+        },
+        {
+            "name": "Ireland",
+            "confederation": "UEFA",
+            "points": 1468
+        },
+        {
+            "name": "Slovakia",
+            "confederation": "UEFA",
+            "points": 1467
+        },
+        {
+            "name": "Morocco",
+            "confederation": "CAF",
+            "points": 1467
+        },
+        {
+            "name": "South Korea",
+            "confederation": "AFC",
+            "points": 1467
         },
         {
             "name": "Iceland",
             "confederation": "UEFA",
+            "points": 1464
+        },
+        {
+            "name": "Russia",
+            "confederation": "UEFA",
+            "points": 1462
+        },
+        {
+            "name": "Norway",
+            "confederation": "UEFA",
             "points": 1452
         },
         {
-            "name": "Scotland",
+            "name": "Turkey",
             "confederation": "UEFA",
-            "points": 1446
+            "points": 1444
         },
         {
             "name": "Türkiye",
@@ -202,113 +232,108 @@
             "points": 1443
         },
         {
-            "name": "Morocco",
-            "confederation": "CAF",
-            "points": 1440
-        },
-        {
-            "name": "South Korea",
-            "confederation": "AFC",
-            "points": 1437
-        },
-        {
-            "name": "Czech Republic",
-            "confederation": "UEFA",
-            "points": 1435
-        },
-        {
-            "name": "Greece",
-            "confederation": "UEFA",
-            "points": 1428
-        },
-        {
-            "name": "Montenegro",
-            "confederation": "UEFA",
-            "points": 1427
-        },
-        {
-            "name": "Nigeria",
-            "confederation": "CAF",
-            "points": 1427
-        },
-        {
-            "name": "Norway",
-            "confederation": "UEFA",
-            "points": 1425
-        },
-        {
-            "name": "Bulgaria",
-            "confederation": "UEFA",
-            "points": 1425
-        },
-        {
-            "name": "Russia",
-            "confederation": "UEFA",
-            "points": 1424
-        },
-        {
-            "name": "Australia",
-            "confederation": "AFC",
-            "points": 1424
-        },
-        {
-            "name": "Democratic Republic of the Congo",
-            "confederation": "CAF",
-            "points": 1420
-        },
-        {
-            "name": "Ghana",
-            "confederation": "CAF",
-            "points": 1412
-        },
-        {
-            "name": "Hungary",
-            "confederation": "UEFA",
-            "points": 1412
-        },
-        {
-            "name": "Jamaica",
-            "confederation": "CONCACAF",
-            "points": 1404
+            "name": "Paraguay",
+            "confederation": "CONMEBOL",
+            "points": 1436
         },
         {
             "name": "Palestine",
             "confederation": "AFC",
-            "points": 1397
-        },
-        {
-            "name": "Cameroon",
-            "confederation": "CAF",
-            "points": 1394
+            "points": 1434
         },
         {
             "name": "Egypt",
             "confederation": "CAF",
-            "points": 1393
+            "points": 1431
         },
         {
-            "name": "Ecuador",
-            "confederation": "CONMEBOL",
-            "points": 1382
-        },
-        {
-            "name": "Finland",
+            "name": "Scotland",
             "confederation": "UEFA",
-            "points": 1378
+            "points": 1420
+        },
+        {
+            "name": "Australia",
+            "confederation": "AFC",
+            "points": 1419
+        },
+        {
+            "name": "Ghana",
+            "confederation": "CAF",
+            "points": 1418
+        },
+        {
+            "name": "Greece",
+            "confederation": "UEFA",
+            "points": 1411
+        },
+        {
+            "name": "Jamaica",
+            "confederation": "CONCACAF",
+            "points": 1410
+        },
+        {
+            "name": "Bosnia Herzegovina",
+            "confederation": "UEFA",
+            "points": 1410
+        },
+        {
+            "name": "Hungary",
+            "confederation": "UEFA",
+            "points": 1404
+        },
+        {
+            "name": "Cameroon",
+            "confederation": "CAF",
+            "points": 1399
         },
         {
             "name": "Saudi Arabia",
             "confederation": "AFC",
-            "points": 1376
+            "points": 1395
         },
         {
-            "name": "Bolivia",
-            "confederation": "CONMEBOL",
-            "points": 1374
+            "name": "Finland",
+            "confederation": "UEFA",
+            "points": 1391
+        },
+        {
+            "name": "DR Congo",
+            "confederation": "CAF",
+            "points": 1388
         },
         {
             "name": "Albania",
             "confederation": "UEFA",
+            "points": 1388
+        },
+        {
+            "name": "Ivory Coast",
+            "confederation": "CAF",
+            "points": 1387
+        },
+        {
+            "name": "Mali",
+            "confederation": "CAF",
+            "points": 1381
+        },
+        {
+            "name": "Slovenia",
+            "confederation": "UEFA",
+            "points": 1377
+        },
+        {
+            "name": "Panama",
+            "confederation": "CONCACAF",
+            "points": 1374
+        },
+        {
+            "name": "Bulgaria",
+            "confederation": "UEFA",
+            "points": 1372
+        },
+        {
+            "name": "Canada",
+            "confederation": "CONCACAF",
             "points": 1372
         },
         {
@@ -319,52 +344,52 @@
         {
             "name": "Honduras",
             "confederation": "CONCACAF",
-            "points": 1369
+            "points": 1365
         },
         {
-            "name": "Slovenia",
+            "name": "Montenegro",
             "confederation": "UEFA",
-            "points": 1369
+            "points": 1364
         },
         {
-            "name": "Mali",
-            "confederation": "CAF",
-            "points": 1363
-        },
-        {
-            "name": "Ivory Coast",
-            "confederation": "CAF",
-            "points": 1356
+            "name": "Ecuador",
+            "confederation": "CONMEBOL",
+            "points": 1355
         },
         {
             "name": "Guinea",
             "confederation": "CAF",
-            "points": 1354
+            "points": 1344
         },
         {
-            "name": "Algeria",
+            "name": "Curacao",
+            "confederation": "CONCACAF",
+            "points": 1340
+        },
+        {
+            "name": "Iraq",
+            "confederation": "AFC",
+            "points": 1339
+        },
+        {
+            "name": "Bolivia",
+            "confederation": "CONMEBOL",
+            "points": 1333
+        },
+        {
+            "name": "South Africa",
             "confederation": "CAF",
-            "points": 1352
+            "points": 1331
+        },
+        {
+            "name": "United Arab Emirates",
+            "confederation": "AFC",
+            "points": 1328
         },
         {
             "name": "North Macedonia",
             "confederation": "UEFA",
-            "points": 1343
-        },
-        {
-            "name": "Vietnam",
-            "confederation": "AFC",
-            "points": 1331
-        },
-        {
-            "name": "El Salvador",
-            "confederation": "CONCACAF",
             "points": 1327
-        },
-        {
-            "name": "Panama",
-            "confederation": "CONCACAF",
-            "points": 1326
         },
         {
             "name": "Cape Verde",
@@ -372,44 +397,19 @@
             "points": 1325
         },
         {
-            "name": "South Africa",
-            "confederation": "CAF",
-            "points": 1325
-        },
-        {
-            "name": "China",
-            "confederation": "AFC",
-            "points": 1324
-        },
-        {
             "name": "Uganda",
             "confederation": "CAF",
-            "points": 1320
+            "points": 1319
         },
         {
-            "name": "Belarus",
-            "confederation": "UEFA",
-            "points": 1317
-        },
-        {
-            "name": "Canada",
+            "name": "El Salvador",
             "confederation": "CONCACAF",
-            "points": 1314
+            "points": 1313
         },
         {
-            "name": "United Arab Emirates",
+            "name": "India",
             "confederation": "AFC",
-            "points": 1310
-        },
-        {
-            "name": "Iraq",
-            "confederation": "AFC",
-            "points": 1307
-        },
-        {
-            "name": "Curaçao",
-            "confederation": "CONCACAF",
-            "points": 1306
+            "points": 1312
         },
         {
             "name": "Zambia",
@@ -417,9 +417,19 @@
             "points": 1292
         },
         {
+            "name": "Oman",
+            "confederation": "AFC",
+            "points": 1291
+        },
+        {
             "name": "Uzbekistan",
             "confederation": "AFC",
-            "points": 1292
+            "points": 1288
+        },
+        {
+            "name": "Belarus",
+            "confederation": "UEFA",
+            "points": 1283
         },
         {
             "name": "Republic of the Congo",
@@ -427,84 +437,64 @@
             "points": 1280
         },
         {
+            "name": "Georgia",
+            "confederation": "UEFA",
+            "points": 1280
+        },
+        {
+            "name": "Haiti",
+            "confederation": "CONCACAF",
+            "points": 1278
+        },
+        {
+            "name": "Benin",
+            "confederation": "CAF",
+            "points": 1278
+        },
+        {
             "name": "Gabon",
             "confederation": "CAF",
             "points": 1277
         },
         {
-            "name": "Luxembourg",
-            "confederation": "UEFA",
-            "points": 1276
+            "name": "Qatar",
+            "confederation": "AFC",
+            "points": 1266
+        },
+        {
+            "name": "Madagascar",
+            "confederation": "CAF",
+            "points": 1265
+        },
+        {
+            "name": "China",
+            "confederation": "AFC",
+            "points": 1256
         },
         {
             "name": "Cyprus",
             "confederation": "UEFA",
-            "points": 1276
+            "points": 1250
         },
         {
-            "name": "Qatar",
-            "confederation": "AFC",
-            "points": 1274
-        },
-        {
-            "name": "Oman",
-            "confederation": "AFC",
-            "points": 1269
-        },
-        {
-            "name": "Georgia",
+            "name": "Luxembourg",
             "confederation": "UEFA",
-            "points": 1269
-        },
-        {
-            "name": "India",
-            "confederation": "AFC",
-            "points": 1268
-        },
-        {
-            "name": "Israel",
-            "confederation": "UEFA",
-            "points": 1265
-        },
-        {
-            "name": "Trinidad and Tobago",
-            "confederation": "CONCACAF",
-            "points": 1260
+            "points": 1241
         },
         {
             "name": "Lebanon",
             "confederation": "AFC",
-            "points": 1257
-        },
-        {
-            "name": "Benin",
-            "confederation": "CAF",
-            "points": 1257
+            "points": 1229
         },
         {
             "name": "Estonia",
             "confederation": "UEFA",
-            "points": 1242
+            "points": 1224
         },
         {
-            "name": "Faroe Islands",
-            "confederation": "UEFA",
-            "points": 1238
-        },
-        {
-            "name": "Armenia",
-            "confederation": "UEFA",
-            "points": 1222
-        },
-        {
-            "name": "Mauritania",
-            "confederation": "CAF",
-            "points": 1222
-        },
-        {
-            "name": "Haiti",
-            "confederation": "CONCACAF",
-            "points": 1219
+            "name": "Jordan",
+            "confederation": "AFC",
+            "points": 1221
         },
         {
             "name": "Libya",
@@ -512,29 +502,19 @@
             "points": 1217
         },
         {
-            "name": "Kyrgyzstan",
-            "confederation": "AFC",
+            "name": "Mauritania",
+            "confederation": "CAF",
             "points": 1215
         },
         {
-            "name": "Kenya",
-            "confederation": "CAF",
-            "points": 1210
+            "name": "Trinidad and Tobago",
+            "confederation": "CONCACAF",
+            "points": 1212
         },
         {
-            "name": "Syria",
-            "confederation": "AFC",
-            "points": 1209
-        },
-        {
-            "name": "Madagascar",
-            "confederation": "CAF",
-            "points": 1209
-        },
-        {
-            "name": "Azerbaijan",
+            "name": "Armenia",
             "confederation": "UEFA",
-            "points": 1206
+            "points": 1212
         },
         {
             "name": "Niger",
@@ -542,19 +522,44 @@
             "points": 1205
         },
         {
-            "name": "Jordan",
-            "confederation": "AFC",
-            "points": 1198
-        },
-        {
-            "name": "Namibia",
+            "name": "Kenya",
             "confederation": "CAF",
-            "points": 1191
+            "points": 1203
         },
         {
-            "name": "Philippines",
+            "name": "Syria",
             "confederation": "AFC",
-            "points": 1184
+            "points": 1199
+        },
+        {
+            "name": "North Korea",
+            "confederation": "AFC",
+            "points": 1195
+        },
+        {
+            "name": "Israel",
+            "confederation": "UEFA",
+            "points": 1195
+        },
+        {
+            "name": "Kyrgyzstan",
+            "confederation": "AFC",
+            "points": 1194
+        },
+        {
+            "name": "Kosovo",
+            "confederation": "UEFA",
+            "points": 1194
+        },
+        {
+            "name": "Kazakhstan",
+            "confederation": "UEFA",
+            "points": 1181
+        },
+        {
+            "name": "Faroe Islands",
+            "confederation": "UEFA",
+            "points": 1180
         },
         {
             "name": "Central African Republic",
@@ -562,9 +567,14 @@
             "points": 1180
         },
         {
-            "name": "Zimbabwe",
-            "confederation": "CAF",
-            "points": 1175
+            "name": "Azerbaijan",
+            "confederation": "UEFA",
+            "points": 1179
+        },
+        {
+            "name": "Bahrain",
+            "confederation": "AFC",
+            "points": 1176
         },
         {
             "name": "Sierra Leone",
@@ -572,34 +582,29 @@
             "points": 1172
         },
         {
+            "name": "Philippines",
+            "confederation": "AFC",
+            "points": 1170
+        },
+        {
             "name": "Mozambique",
             "confederation": "CAF",
             "points": 1167
         },
         {
-            "name": "Thailand",
+            "name": "Tajikistan",
             "confederation": "AFC",
             "points": 1167
         },
         {
-            "name": "Bahrain",
-            "confederation": "AFC",
-            "points": 1161
-        },
-        {
-            "name": "Kazakhstan",
-            "confederation": "UEFA",
+            "name": "Zimbabwe",
+            "confederation": "CAF",
             "points": 1159
         },
         {
-            "name": "North Korea",
-            "confederation": "AFC",
-            "points": 1158
-        },
-        {
-            "name": "Guinea-Bissau",
+            "name": "Namibia",
             "confederation": "CAF",
-            "points": 1158
+            "points": 1157
         },
         {
             "name": "New Zealand",
@@ -607,9 +612,14 @@
             "points": 1157
         },
         {
-            "name": "Tajikistan",
+            "name": "Guinea-Bissau",
+            "confederation": "CAF",
+            "points": 1142
+        },
+        {
+            "name": "Thailand",
             "confederation": "AFC",
-            "points": 1153
+            "points": 1139
         },
         {
             "name": "Togo",
@@ -617,14 +627,9 @@
             "points": 1136
         },
         {
-            "name": "Chinese Taipei",
-            "confederation": "AFC",
-            "points": 1134
-        },
-        {
             "name": "Angola",
             "confederation": "CAF",
-            "points": 1131
+            "points": 1133
         },
         {
             "name": "Antigua and Barbuda",
@@ -632,14 +637,14 @@
             "points": 1126
         },
         {
+            "name": "Turkmenistan",
+            "confederation": "AFC",
+            "points": 1121
+        },
+        {
             "name": "Sudan",
             "confederation": "CAF",
             "points": 1120
-        },
-        {
-            "name": "Nicaragua",
-            "confederation": "CONCACAF",
-            "points": 1119
         },
         {
             "name": "Malawi",
@@ -647,29 +652,19 @@
             "points": 1115
         },
         {
-            "name": "Latvia",
-            "confederation": "UEFA",
-            "points": 1112
-        },
-        {
-            "name": "Lithuania",
-            "confederation": "UEFA",
-            "points": 1111
-        },
-        {
-            "name": "Andorra",
-            "confederation": "UEFA",
-            "points": 1111
-        },
-        {
-            "name": "Turkmenistan",
-            "confederation": "AFC",
-            "points": 1106
-        },
-        {
             "name": "Saint Kitts and Nevis",
             "confederation": "CONCACAF",
             "points": 1105
+        },
+        {
+            "name": "Latvia",
+            "confederation": "UEFA",
+            "points": 1102
+        },
+        {
+            "name": "Afghanistan",
+            "confederation": "AFC",
+            "points": 1098
         },
         {
             "name": "Rwanda",
@@ -677,19 +672,24 @@
             "points": 1094
         },
         {
-            "name": "Tanzania",
-            "confederation": "CAF",
-            "points": 1087
-        },
-        {
-            "name": "Burundi",
-            "confederation": "CAF",
-            "points": 1085
+            "name": "Chinese Taipei",
+            "confederation": "AFC",
+            "points": 1088
         },
         {
             "name": "Myanmar",
             "confederation": "AFC",
-            "points": 1085
+            "points": 1086
+        },
+        {
+            "name": "Malaysia",
+            "confederation": "AFC",
+            "points": 1083
+        },
+        {
+            "name": "Andorra",
+            "confederation": "UEFA",
+            "points": 1081
         },
         {
             "name": "Eswatini",
@@ -697,9 +697,9 @@
             "points": 1078
         },
         {
-            "name": "Hong Kong",
-            "confederation": "AFC",
-            "points": 1078
+            "name": "Nicaragua",
+            "confederation": "CONCACAF",
+            "points": 1076
         },
         {
             "name": "Comoros",
@@ -707,14 +707,14 @@
             "points": 1076
         },
         {
-            "name": "Yemen",
-            "confederation": "AFC",
-            "points": 1074
-        },
-        {
             "name": "Solomon Islands",
             "confederation": "OFC",
             "points": 1073
+        },
+        {
+            "name": "Lithuania",
+            "confederation": "UEFA",
+            "points": 1072
         },
         {
             "name": "Botswana",
@@ -727,11 +727,6 @@
             "points": 1069
         },
         {
-            "name": "Afghanistan",
-            "confederation": "AFC",
-            "points": 1063
-        },
-        {
             "name": "Equatorial Guinea",
             "confederation": "CAF",
             "points": 1063
@@ -739,7 +734,22 @@
         {
             "name": "Guatemala",
             "confederation": "CONCACAF",
-            "points": 1061
+            "points": 1060
+        },
+        {
+            "name": "Tanzania",
+            "confederation": "CAF",
+            "points": 1060
+        },
+        {
+            "name": "Burundi",
+            "confederation": "CAF",
+            "points": 1056
+        },
+        {
+            "name": "Kuwait",
+            "confederation": "AFC",
+            "points": 1053
         },
         {
             "name": "Liberia",
@@ -747,19 +757,19 @@
             "points": 1051
         },
         {
+            "name": "Hong Kong",
+            "confederation": "AFC",
+            "points": 1049
+        },
+        {
             "name": "Ethiopia",
             "confederation": "CAF",
             "points": 1049
         },
         {
-            "name": "Maldives",
+            "name": "Yemen",
             "confederation": "AFC",
-            "points": 1046
-        },
-        {
-            "name": "Suriname",
-            "confederation": "CONCACAF",
-            "points": 1037
+            "points": 1041
         },
         {
             "name": "Dominican Republic",
@@ -767,19 +777,29 @@
             "points": 1036
         },
         {
-            "name": "New Caledonia",
-            "confederation": "OFC",
-            "points": 1036
+            "name": "Maldives",
+            "confederation": "AFC",
+            "points": 1034
         },
         {
-            "name": "Kuwait",
+            "name": "New Caledonia",
+            "confederation": "OFC",
+            "points": 1031
+        },
+        {
+            "name": "Singapore",
             "confederation": "AFC",
-            "points": 1023
+            "points": 1029
         },
         {
             "name": "Mauritius",
             "confederation": "CAF",
-            "points": 1022
+            "points": 1027
+        },
+        {
+            "name": "Suriname",
+            "confederation": "CONCACAF",
+            "points": 1025
         },
         {
             "name": "Tahiti",
@@ -787,19 +807,9 @@
             "points": 1020
         },
         {
-            "name": "Indonesia",
-            "confederation": "AFC",
-            "points": 1003
-        },
-        {
             "name": "Belize",
             "confederation": "CONCACAF",
             "points": 1002
-        },
-        {
-            "name": "Nepal",
-            "confederation": "AFC",
-            "points": 1001
         },
         {
             "name": "Barbados",
@@ -812,19 +822,24 @@
             "points": 996
         },
         {
+            "name": "Indonesia",
+            "confederation": "AFC",
+            "points": 995
+        },
+        {
             "name": "South Sudan",
             "confederation": "CAF",
+            "points": 994
+        },
+        {
+            "name": "Cambodia",
+            "confederation": "AFC",
             "points": 994
         },
         {
             "name": "The Gambia",
             "confederation": "CAF",
             "points": 986
-        },
-        {
-            "name": "Malaysia",
-            "confederation": "AFC",
-            "points": 985
         },
         {
             "name": "Papua New Guinea",
@@ -837,29 +852,19 @@
             "points": 981
         },
         {
-            "name": "Moldova",
-            "confederation": "UEFA",
-            "points": 979
-        },
-        {
             "name": "Saint Lucia",
             "confederation": "CONCACAF",
             "points": 976
         },
         {
-            "name": "Cambodia",
-            "confederation": "AFC",
-            "points": 970
+            "name": "Bermuda",
+            "confederation": "CONCACAF",
+            "points": 962
         },
         {
-            "name": "Grenada",
-            "confederation": "CONCACAF",
-            "points": 968
-        },
-        {
-            "name": "Cuba",
-            "confederation": "CONCACAF",
-            "points": 963
+            "name": "Moldova",
+            "confederation": "UEFA",
+            "points": 961
         },
         {
             "name": "Chad",
@@ -867,19 +872,29 @@
             "points": 956
         },
         {
-            "name": "Bermuda",
+            "name": "Grenada",
             "confederation": "CONCACAF",
-            "points": 952
+            "points": 953
+        },
+        {
+            "name": "Cuba",
+            "confederation": "CONCACAF",
+            "points": 953
         },
         {
             "name": "Guyana",
             "confederation": "CONCACAF",
-            "points": 951
+            "points": 950
         },
         {
             "name": "Dominica",
             "confederation": "CONCACAF",
             "points": 950
+        },
+        {
+            "name": "Liechtenstein",
+            "confederation": "UEFA",
+            "points": 949
         },
         {
             "name": "Puerto Rico",
@@ -892,19 +907,19 @@
             "points": 946
         },
         {
-            "name": "Liechtenstein",
-            "confederation": "UEFA",
-            "points": 937
-        },
-        {
-            "name": "Malta",
-            "confederation": "UEFA",
-            "points": 926
+            "name": "Nepal",
+            "confederation": "AFC",
+            "points": 944
         },
         {
             "name": "Macau",
             "confederation": "AFC",
-            "points": 925
+            "points": 937
+        },
+        {
+            "name": "Bhutan",
+            "confederation": "AFC",
+            "points": 929
         },
         {
             "name": "Laos",
@@ -917,9 +932,9 @@
             "points": 920
         },
         {
-            "name": "Bhutan",
-            "confederation": "AFC",
-            "points": 917
+            "name": "Malta",
+            "confederation": "UEFA",
+            "points": 919
         },
         {
             "name": "Aruba",
@@ -927,9 +942,9 @@
             "points": 916
         },
         {
-            "name": "Mongolia",
+            "name": "Brunei",
             "confederation": "AFC",
-            "points": 915
+            "points": 916
         },
         {
             "name": "Seychelles",
@@ -937,34 +952,19 @@
             "points": 911
         },
         {
-            "name": "American Samoa",
-            "confederation": "OFC",
-            "points": 908
-        },
-        {
             "name": "Cook Islands",
             "confederation": "OFC",
             "points": 908
         },
         {
-            "name": "Guam",
-            "confederation": "AFC",
-            "points": 907
+            "name": "American Samoa",
+            "confederation": "OFC",
+            "points": 908
         },
         {
-            "name": "Bangladesh",
+            "name": "Mongolia",
             "confederation": "AFC",
-            "points": 907
-        },
-        {
-            "name": "Gibraltar",
-            "confederation": "UEFA",
-            "points": 905
-        },
-        {
-            "name": "Brunei Darussalam",
-            "confederation": "AFC",
-            "points": 903
+            "points": 906
         },
         {
             "name": "Timor-Leste",
@@ -972,14 +972,19 @@
             "points": 900
         },
         {
+            "name": "Djibouti",
+            "confederation": "CAF",
+            "points": 896
+        },
+        {
             "name": "Samoa",
             "confederation": "OFC",
             "points": 896
         },
         {
-            "name": "Djibouti",
-            "confederation": "CAF",
-            "points": 896
+            "name": "Bangladesh",
+            "confederation": "AFC",
+            "points": 894
         },
         {
             "name": "Pakistan",
@@ -992,14 +997,19 @@
             "points": 887
         },
         {
-            "name": "Sri Lanka",
-            "confederation": "AFC",
-            "points": 886
+            "name": "Gibraltar",
+            "confederation": "UEFA",
+            "points": 883
         },
         {
             "name": "United States Virgin Islands",
             "confederation": "CONCACAF",
             "points": 881
+        },
+        {
+            "name": "Guam",
+            "confederation": "AFC",
+            "points": 874
         },
         {
             "name": "Cayman Islands",
@@ -1032,6 +1042,11 @@
             "points": 864
         },
         {
+            "name": "Sri Lanka",
+            "confederation": "AFC",
+            "points": 858
+        },
+        {
             "name": "Bahamas",
             "confederation": "CONCACAF",
             "points": 858
@@ -1039,7 +1054,7 @@
         {
             "name": "San Marino",
             "confederation": "UEFA",
-            "points": 854
+            "points": 825
         }
     ]
 }

@@ -11,6 +11,7 @@ func main() {
 	timestampPtr := flag.String("time", "2018-12-20", "determine the timestamp to extract FIFA rankings score")
 	savePtr := flag.String("save", "0001", "determine the save to use for doing simulations")
 	getRankTeamPtr := flag.String("t", "Vietnam", "get the current ranking of the given team")
+	confederationPtr := flag.String("conf", "AFC", "get a query but only limited to the given confederation")
 
 	flag.Parse()
 
@@ -41,6 +42,18 @@ func main() {
 				getRanking(*getRankTeamPtr, saveJson)
 			}
 		}
+	case "get-list":
+		saveJson := getJson(*savePtr)
+		files, err := os.ReadDir("./saves")
+		if err != nil {
+			log.Fatal(err)
+		}
+		for _, f := range files {
+			if saveJson == f.Name() {
+				getSortedRankings(*confederationPtr, saveJson)
+			}
+		}
 	}
-
 }
+
+func getJson(s string) string { return "save-" + s + ".json" }

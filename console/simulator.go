@@ -9,6 +9,7 @@ import (
 	"os"
 	"sort"
 	"strconv"
+	"strings"
 )
 
 type ByPoint []Team
@@ -34,23 +35,25 @@ func simulate(saveFile string) {
 	var away Team
 	var homeId int
 	var awayId int
-	var importance int
+	var importance int = 0
 	var result string
 	var penalties string
 	var isStopped string = ""
+	var isKnockout string = ""
 
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for {
 
-		fmt.Print("\nEnter home team: ")
+		fmt.Print("\nTeams? (Home-Away) ")
 		if scanner.Scan() {
-			homeName = scanner.Text()
-		}
-
-		fmt.Print("Enter away team: ")
-		if scanner.Scan() {
-			awayName = scanner.Text()
+			names := strings.Split(scanner.Text(), "-")
+			if len(names) != 2 {
+				fmt.Println("Error: there are not exact two names!")
+				break
+			}
+			homeName = strings.TrimSpace(names[0])
+			awayName = strings.TrimSpace(names[1])
 		}
 
 		for i, team := range rankings.Teams {
@@ -73,10 +76,7 @@ func simulate(saveFile string) {
 			break
 		}
 
-		fmt.Print("Match importance: ")
-		fmt.Scanln(&importance)
-
-		fmt.Print("Match result [{home}-{away}]: ")
+		fmt.Print("Results? (Home-Away) ")
 		fmt.Scanln(&result)
 
 		if len(result) != 3 || result[1] != '-' {
@@ -84,16 +84,27 @@ func simulate(saveFile string) {
 			break
 		}
 
-		fmt.Print("Penalties? [0 if home wins, 1 if away wins, skip of no penalties] ")
-		fmt.Scanln(&penalties)
+		if importance != 0 {
+			fmt.Printf("Importance? (current at %d) ", importance)
+		} else {
+			fmt.Print("Importance? ")
+		}
 
-		isKnockout := "n"
-		fmt.Print("Knockout? [y/N] ")
-		fmt.Scanln(&isKnockout)
+		fmt.Scanln(&importance)
+
+		if importance >= 35 {
+			fmt.Print("Knockout? [y/N] ")
+			fmt.Scanln(&isKnockout)
+		}
+
+		if result[0] == result[1] || isKnockout != "" {
+			fmt.Print("Penalties? [0 if home wins, 1 if away wins, skip of no penalties] ")
+			fmt.Scanln(&penalties)
+		}
 
 		homeResult, awayResult := getResultWeights(result[0], result[2], penalties)
 
-		if (isKnockout) != "" {
+		if isKnockout != "" {
 			if homeResult == 0 {
 				away.Points = int(calculateResult(away.Points, home.Points, importance, awayResult))
 				log.Printf("%d\n", away.Points)
@@ -113,7 +124,7 @@ func simulate(saveFile string) {
 		rankings.Teams[homeId] = home
 		rankings.Teams[awayId] = away
 
-		fmt.Print("Continue? (type anything to stop) ")
+		fmt.Print("\nContinue? (type anything to stop) ")
 		fmt.Scanln(&isStopped)
 		if isStopped != "" {
 			break
@@ -151,10 +162,34 @@ func getRanking(team string, saveFile string) {
 	fmt.Printf("Could not find team with name '%s'\n", team)
 }
 
+func getSortedRankings(confederation string, saveFile string) {
+	bytes, err := os.ReadFile("./saves/" + saveFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	var rankings RankingTime
+	err = json.Unmarshal(bytes, &rankings)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	counter := 1
+	fmt.Printf("\n%s\tWorld\tPoints\tName\n", confederation)
+	fmt.Println("------------------------------------------------")
+	for i, t := range rankings.Teams {
+		if t.Confederation == confederation {
+			fmt.Printf("%d\t%d\t%d\t%s\n", counter, i+1, t.Points, t.Name)
+			counter++
+		}
+	}
+
+}
+
 func calculateResult(home, away, importance int, result float64) float64 {
 	ratingDiff := (float64(home) - float64(away)) / 600 * -1
 	expected := 1 / (math.Pow(10, ratingDiff) + 1)
-	return math.Round(float64(home) + float64(importance)*(result-expected))
+	finalResult := float64(home) + float64(importance)*(result-expected)
+	return math.Round(finalResult)
 }
 
 func getResultWeights(home, away byte, penalties string) (float64, float64) {
