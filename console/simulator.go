@@ -173,6 +173,15 @@ func getSortedRankings(confederation string, saveFile string) {
 		log.Fatal(err)
 	}
 
+	if confederation == "" {
+		fmt.Print("World\tPoints\tName\n")
+		fmt.Println("------------------------------------------------")
+		for i, t := range rankings.Teams {
+			fmt.Printf("%d\t%d\t%s\n", i+1, t.Points, t.Name)
+		}
+		return
+	}
+
 	counter := 1
 	fmt.Printf("\n%s\tWorld\tPoints\tName\n", confederation)
 	fmt.Println("------------------------------------------------")
