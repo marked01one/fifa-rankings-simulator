@@ -6,17 +6,18 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/gocolly/colly"
 )
 
+var soccerCountries []string = []string{"United States", "Canada", "Australia"}
+
 func getTimestamp(datum string) {
 	log.Println("Attemt to scrape www.transfermarkt.com")
-	c := colly.NewCollector(
-		colly.AllowedDomains("www.transfermarkt.com"),
-	)
+	teamsCollector := colly.NewCollector(colly.AllowedDomains("www.transfermarkt.com"))
+	fifaCodeCollector := colly.NewCollector(colly.AllowedDomains("en.wikipedia.org/wiki"))
 
-	teamsCollector := c.Clone()
 	timestamp := RankingTime{}
 	teams := make([]Team, 0, 211)
 
@@ -54,6 +55,7 @@ func getTimestamp(datum string) {
 					}
 				}
 			})
+
 			teams = append(teams, team)
 		})
 	})
@@ -67,6 +69,20 @@ func getTimestamp(datum string) {
 	}
 	timestamp.Timestamp = datum
 	timestamp.Teams = teams
+
+	for _, team := range timestamp.Teams {
+
+		underscoredTeam := strings.ReplaceAll(team.Name, " ", "_")
+		var footballString string
+
+		if team.Name == soccerCountries[i] {
+			footballString = "_men's_national_soccer_team"
+		} else {
+			footballString = "_national_football_team"
+		}
+
+		fifaCodeCollector.Visit("https://en.wikipedia.org/wiki/" + underscoredTeam + footballString)
+	}
 
 	file, err := json.MarshalIndent(timestamp, "", "    ")
 	if err != nil {

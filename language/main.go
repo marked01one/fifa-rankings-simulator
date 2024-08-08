@@ -12,21 +12,27 @@ func main() {
 		return
 	}
 
-	file := FileName(os.Args[0])
-	if !file.IsFFS() {
+	file := File{os.Args[0], nil}
+
+	if file.Verify() != nil {
 		log.Fatal("File not of .ffs type!")
 		return
 	}
 
 }
 
-type FileName string
+type File struct {
+	name string
+	err  error
+}
 
-func (f FileName) IsFFS() bool {
-	format := strings.Split(string(f), ".")[len(f)-1]
+func (f *File) Verify() error {
+	format := strings.Split(string(f.name), ".")[len(f.name)-1]
 	if format != "ffs" {
-		return false
+		return &File{}
 	} else {
-		return true
+		return nil
 	}
 }
+
+func (f *File) Error() string { return "An error occured!" }

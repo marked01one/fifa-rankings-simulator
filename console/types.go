@@ -7,6 +7,7 @@ type RankingTime struct {
 
 type Team struct {
 	Name          string `json:"name"`
+	FifaCode      string `json:"fifaCode"`
 	Confederation string `json:"confederation"`
 	Points        int    `json:"points"`
 }

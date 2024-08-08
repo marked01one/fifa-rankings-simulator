@@ -29,21 +29,20 @@ func simulate(saveFile string) {
 		log.Fatal(err)
 	}
 
-	var homeName string
-	var awayName string
-	var home Team
-	var away Team
-	var homeId int
-	var awayId int
 	var importance int = 0
-	var result string
-	var penalties string
-	var isStopped string = ""
-	var isKnockout string = ""
-
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for {
+		var homeName string
+		var awayName string
+		var home Team
+		var away Team
+		var homeId int
+		var awayId int
+		var result string
+		var penalties string
+		var isStopped string = ""
+		var isKnockout string = ""
 
 		fmt.Print("\nTeams? (Home-Away) ")
 		if scanner.Scan() {
@@ -107,7 +106,6 @@ func simulate(saveFile string) {
 		if isKnockout != "" {
 			if homeResult == 0 {
 				away.Points = int(calculateResult(away.Points, home.Points, importance, awayResult))
-				log.Printf("%d\n", away.Points)
 			} else if awayResult == 0 {
 				home.Points = int(calculateResult(home.Points, away.Points, importance, homeResult))
 			} else {
