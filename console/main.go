@@ -4,7 +4,6 @@ import (
 	"flag"
 	"log"
 	"os"
-	"strings"
 )
 
 func main() {
@@ -55,24 +54,4 @@ func main() {
 			}
 		}
 	}
-}
-
-func binSearch(arr []string, search string) int {
-
-	for l, r := 0, len(arr)-1; l <= r; {
-		m := l + (r-l)/2
-		result := strings.Compare(search, arr[m])
-
-		if result == 0 {
-			return m
-		}
-
-		if result > 0 {
-			l = m + 1
-		} else {
-			r = m - 1
-		}
-	}
-
-	return -1
 }
