@@ -73,12 +73,13 @@ func getTimestamp(datum string) {
 	for _, team := range timestamp.Teams {
 
 		underscoredTeam := strings.ReplaceAll(team.Name, " ", "_")
-		var footballString string
+		footballString := "_national_football_team"
 
-		if team.Name == soccerCountries[i] {
-			footballString = "_men's_national_soccer_team"
-		} else {
-			footballString = "_national_football_team"
+		for i := 0; i < len(soccerCountries); i++ {
+			if team.Name == soccerCountries[i] {
+				footballString = "_men's_national_soccer_team"
+				break
+			}
 		}
 
 		fifaCodeCollector.Visit("https://en.wikipedia.org/wiki/" + underscoredTeam + footballString)

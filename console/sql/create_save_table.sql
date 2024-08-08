@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS Save (
+	saveId VARCHAR(63) PRIMARY KEY,
+	sourceDate DATE,
+	name VARCHAR(255)
+);
