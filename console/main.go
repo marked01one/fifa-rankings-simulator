@@ -16,6 +16,8 @@ func main() {
 	flag.Parse()
 
 	switch *funcPtr {
+	case "create-db":
+		createDatabase()
 	case "timestamp":
 		getTimestamp(*timestampPtr)
 	case "create-save":

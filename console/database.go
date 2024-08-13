@@ -3,6 +3,8 @@ package main
 import (
 	"database/sql"
 	"log"
+
+	_ "github.com/mattn/go-sqlite3"
 )
 
 var CreateSaveTable string = `
@@ -27,16 +29,16 @@ CREATE TABLE IF NOT EXISTS Match (
 	homeTeam VARCHAR(4),
 	awayTeam VARCHAR(4),
 	homeScore INTEGER,
-	homeScore INTEGER,
+	awayScore INTEGER,
 	significance INTEGER,
 	isKnockout BOOLEAN,
 	homePenalties INTEGER,
 	awayPenalties INTEGER,
 
-	FOREIGN KEY (saveId) REFERENCES Save(saveId)
-	FOREIGN KEY (homeTeam) REFERENCES SavedTeam(fifaCode)
-	FOREIGN KEY (awayTeam) REFERENCES SavedTeam(fifaCode)
-)`
+	FOREIGN KEY (saveId) REFERENCES Save(saveId),
+	FOREIGN KEY (homeTeam) REFERENCES SavedTeam(fifaCode) ON UPDATE CASCADE,
+	FOREIGN KEY (awayTeam) REFERENCES SavedTeam(fifaCode) ON UPDATE CASCADE
+);`
 
 func createDatabase() {
 	db, err := sql.Open("sqlite3", "./fifa.db")
