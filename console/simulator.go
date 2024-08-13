@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-type ByPoint []Team
+type ByPoint []SavedTeam
 
 func (a ByPoint) Len() int           { return len(a) }
 func (a ByPoint) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
@@ -35,8 +35,8 @@ func simulate(saveFile string) {
 	for {
 		var homeName string
 		var awayName string
-		var home Team
-		var away Team
+		var home SavedTeam
+		var away SavedTeam
 		var homeId int
 		var awayId int
 		var result string

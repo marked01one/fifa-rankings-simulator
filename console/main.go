@@ -18,6 +18,12 @@ func main() {
 	switch *funcPtr {
 	case "create-db":
 		createDatabase()
+	case "insert-teams":
+		_, err := insertTeamsFromJson("../timestamps/2024-07-18.json")
+		if err != nil {
+			log.Fatal(err)
+		}
+
 	case "timestamp":
 		getTimestamp(*timestampPtr)
 	case "create-save":

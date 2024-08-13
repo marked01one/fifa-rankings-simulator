@@ -19,7 +19,7 @@ func getTimestamp(datum string) {
 	fifaCodeCollector := colly.NewCollector(colly.AllowedDomains("en.wikipedia.org/wiki"))
 
 	timestamp := RankingTime{}
-	teams := make([]Team, 0, 211)
+	teams := make([]SavedTeam, 0, 211)
 
 	teamsCollector.OnRequest(func(r *colly.Request) {
 		fmt.Println("Visiting", r.URL.String())
@@ -39,7 +39,7 @@ func getTimestamp(datum string) {
 		})
 
 		e.ForEach("tbody tr", func(_ int, el *colly.HTMLElement) {
-			team := Team{}
+			team := SavedTeam{}
 			el.ForEach("td", func(i int, els *colly.HTMLElement) {
 				switch i {
 				case 1:

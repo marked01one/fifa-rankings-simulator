@@ -40,6 +40,12 @@ CREATE TABLE IF NOT EXISTS Match (
 	FOREIGN KEY (awayTeam) REFERENCES SavedTeam(fifaCode) ON UPDATE CASCADE
 );`
 
+var CreateTeamTable string = `
+CREATE TABLE IF NOT EXISTS Team (
+	fifaCode VARCHAR(4) PRIMARY KEY,
+	name VARCHAR(63)
+);`
+
 func createDatabase() {
 	db, err := sql.Open("sqlite3", "./fifa.db")
 	if err != nil {
@@ -58,6 +64,11 @@ func createDatabase() {
 	}
 
 	_, err = db.Exec(CreateMatchTable)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	_, err = db.Exec(CreateTeamTable)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -1,11 +1,11 @@
 package main
 
 type RankingTime struct {
-	Timestamp string `json:"timestamp"`
-	Teams     []Team `json:"teams"`
+	Timestamp string      `json:"timestamp"`
+	Teams     []SavedTeam `json:"teams"`
 }
 
-type Team struct {
+type SavedTeam struct {
 	Name          string `json:"name"`
 	FifaCode      string `json:"fifaCode"`
 	Confederation string `json:"confederation"`
@@ -13,13 +13,13 @@ type Team struct {
 }
 
 type RankingSave struct {
-	SourceTimestamp string  `json:"sourceTimestamp"`
-	Teams           []Team  `json:"teams"`
-	MatchLogs       []Match `json:"matchLogs"`
+	SourceTimestamp string      `json:"sourceTimestamp"`
+	Teams           []SavedTeam `json:"teams"`
+	MatchLogs       []Match     `json:"matchLogs"`
 }
 
 type Match struct {
-	Home       Team `json:"home"`
-	Away       Team `json:"away"`
-	Importance int  `json:"importance"`
+	Home       SavedTeam `json:"home"`
+	Away       SavedTeam `json:"away"`
+	Importance int       `json:"importance"`
 }
