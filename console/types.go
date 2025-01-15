@@ -2,6 +2,7 @@ package main
 
 type RankingTime struct {
 	Timestamp string      `json:"timestamp"`
+	Missing   []string    `json:"missing"`
 	Teams     []SavedTeam `json:"teams"`
 }
 
@@ -22,4 +23,7 @@ type Match struct {
 	Home       SavedTeam `json:"home"`
 	Away       SavedTeam `json:"away"`
 	Importance int       `json:"importance"`
+}
+
+type MatchState struct {
 }

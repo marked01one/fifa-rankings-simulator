@@ -18,8 +18,12 @@ func (a ByPoint) Len() int           { return len(a) }
 func (a ByPoint) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ByPoint) Less(i, j int) bool { return a[i].Points > a[j].Points }
 
-func simulate(saveFile string) {
-	bytes, err := os.ReadFile("./saves/" + saveFile)
+func simulate(saveFile string, noSave bool) {
+	if noSave {
+		fmt.Println("WARNING: Simulator is running in no-save mode!")
+	}
+
+	bytes, err := os.ReadFile(saveFile)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -51,26 +55,37 @@ func simulate(saveFile string) {
 				fmt.Println("Error: there are not exact two names!")
 				break
 			}
-			homeName = strings.TrimSpace(names[0])
-			awayName = strings.TrimSpace(names[1])
+			homeName = strings.ToLower(strings.TrimSpace(names[0]))
+			awayName = strings.ToLower(strings.TrimSpace(names[1]))
 		}
 
 		for i, team := range rankings.Teams {
-			switch team.Name {
-			case homeName:
-				home = team
-				homeId = i
-			case awayName:
-				away = team
-				awayId = i
+			if len(homeName) == 3 && len(awayName) == 3 {
+				switch strings.ToLower(team.FifaCode) {
+				case homeName:
+					home = team
+					homeId = i
+				case awayName:
+					away = team
+					awayId = i
+				}
+			} else {
+				switch strings.ToLower(team.Name) {
+				case homeName:
+					home = team
+					homeId = i
+				case awayName:
+					away = team
+					awayId = i
+				}
 			}
 		}
 
-		if home.Name != homeName {
+		if strings.ToLower(home.Name) != homeName {
 			log.Println("Error: Country of '" + homeName + "' does not exist!")
 			break
 		}
-		if away.Name != awayName {
+		if strings.ToLower(away.Name) != awayName {
 			log.Println("Error: Country of '" + awayName + "' does not exist!")
 			break
 		}
@@ -96,7 +111,7 @@ func simulate(saveFile string) {
 			fmt.Scanln(&isKnockout)
 		}
 
-		if result[0] == result[1] || isKnockout != "" {
+		if result[0] == result[2] && strings.ToLower(isKnockout) != "n" && isKnockout != "" {
 			fmt.Print("Penalties? [0 if home wins, 1 if away wins, skip of no penalties] ")
 			fmt.Scanln(&penalties)
 		}
@@ -128,20 +143,28 @@ func simulate(saveFile string) {
 			break
 		}
 	}
-	fmt.Println("\nReceived stop signal. Saving results...")
+
+	fmt.Println("Received stop signal")
+
+	if noSave {
+		fmt.Println("Exiting...")
+		return
+	}
+
+	fmt.Println("Saving results...")
 	sort.Sort(ByPoint(rankings.Teams))
 	file, err := json.MarshalIndent(rankings, "", "    ")
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = os.WriteFile("./saves/"+saveFile, file, 0644)
+	err = os.WriteFile(saveFile, file, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-func getRanking(team string, saveFile string) {
-	bytes, err := os.ReadFile("./saves/" + saveFile)
+func getRanking(team string, saveJson string) {
+	bytes, err := os.ReadFile(saveJson)
 	if err != nil {
 		log.Fatal(err)
 	}

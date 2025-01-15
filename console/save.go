@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func createSave(saveTimestamp string) {
+func createSave(saveTimestamp string) string {
 	saves, err := os.ReadDir("./saves")
 	if err != nil {
 		log.Fatal(err)
@@ -27,6 +27,8 @@ func createSave(saveTimestamp string) {
 	sourceFile := saveTimestamp + ".json"
 
 	copyTimestamp(sourceFile, destFile)
+
+	return destFile
 }
 
 func copyTimestamp(source, destination string) {

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 	"strings"
 
@@ -12,13 +13,65 @@ import (
 
 var timestamp RankingTime
 
+var NameMap map[string]string = map[string]string{}
+
 func insertTeamsFromJson(saveJson string) (int, error) {
+	tableNum := 0
+	currentName := ""
+	currentCode := ""
+	// Initialize the FIFA code collector to get corresponding FIFA codes from Wikipedia
+	fifaCodeCollector := colly.NewCollector(
+		colly.AllowedDomains("en.wikipedia.org"),
+	)
+	fifaCodeCollector.OnHTML(`table`, func(e *colly.HTMLElement) {
+		tableNum++
+		if tableNum > 4 {
+			return
+		}
 
-	fifaCodeCollector := colly.NewCollector(colly.AllowedDomains("en.wikipedia.org/wiki"))
+		e.ForEach("tbody tr", func(i int, eh *colly.HTMLElement) {
+			if i == 0 {
+				return
+			}
 
-	fifaCodeCollector.OnHTML("tr", func(e *colly.HTMLElement) {
+			eh.ForEach("td", func(j int, ehd *colly.HTMLElement) {
+				if j == 0 {
+					currentName = ehd.ChildText("a")
+				} else if j == 1 {
+					currentCode = strings.TrimSpace(ehd.Text)
+				}
+			})
+
+			switch currentName {
+			case "Turkey":
+				NameMap["Türkiye"] = currentCode
+			case "Bosnia and Herzegovina":
+				NameMap["Bosnia-Herzegovina"] = currentCode
+			case "DR Congo":
+				NameMap["Democratic Republic of the Congo"] = currentCode
+			case "Congo":
+				NameMap["Republic of the Congo"] = currentCode
+			case "Gambia":
+				NameMap["The Gambia"] = currentCode
+			case "Brunei":
+				NameMap["Brunei Darussalam"] = currentCode
+			case "East Timor":
+				NameMap["Timor-Leste"] = currentCode
+			case "U.S. Virgin Islands":
+				NameMap["United States Virgin Islands"] = currentCode
+			default:
+				NameMap[currentName] = currentCode
+			}
+
+		})
 
 	})
+
+	err := fifaCodeCollector.Visit("https://en.wikipedia.org/wiki/List_of_FIFA_country_codes")
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	db, err := sql.Open("sqlite3", "./fifa.db")
 	if err != nil {
@@ -35,30 +88,20 @@ func insertTeamsFromJson(saveJson string) (int, error) {
 		return -1, err
 	}
 
-	execStr := "INSERT INTO Team (fifaCode, name) VALUES \n"
+	TeamExec := "INSERT OR REPLACE INTO Team (fifaCode, name) VALUES \n"
 	for i, team := range timestamp.Teams {
+		TeamExec += fmt.Sprintf("('%s','%s')", NameMap[team.Name], team.Name)
 
-		underscoredTeam := strings.ReplaceAll(team.Name, " ", "_")
-		footballString := "_national_football_team"
-
-		if team.Name == soccerCountries[i] {
-			footballString = "_men's_national_soccer_team"
-			break
-		}
-
-		fifaCodeCollector.Visit("https://en.wikipedia.org/wiki/" + underscoredTeam + footballString)
-
-		execStr += fmt.Sprintf("(%s,%s)", team.FifaCode, team.Name)
 		if i == len(timestamp.Teams)-1 {
-			execStr += ";\n"
+			TeamExec += ";\n"
 		} else {
-			execStr += ",\n"
+			TeamExec += ",\n"
 		}
 	}
 
-	fmt.Print(execStr)
+	fmt.Print()
 
-	result, err := db.Exec(execStr)
+	result, err := db.Exec(TeamExec)
 	if err != nil {
 		return -1, err
 	}

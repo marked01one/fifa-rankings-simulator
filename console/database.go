@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS SavedTeam (
 	fifaCode VARCHAR(4) PRIMARY KEY,
 	name VARCHAR(63),
 	points INTEGER,
-	flagImage TEXT
 );`
 
 var CreateMatchTable string = `
@@ -43,7 +42,8 @@ CREATE TABLE IF NOT EXISTS Match (
 var CreateTeamTable string = `
 CREATE TABLE IF NOT EXISTS Team (
 	fifaCode VARCHAR(4) PRIMARY KEY,
-	name VARCHAR(63)
+	name VARCHAR(63),
+	confederation VARCHAR(4)
 );`
 
 func createDatabase() {
