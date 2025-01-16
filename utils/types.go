@@ -24,3 +24,6 @@ type Match struct {
 	Away       SavedTeam `json:"away"`
 	Importance int       `json:"importance"`
 }
+
+type MatchState struct {
+}

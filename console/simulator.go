@@ -183,8 +183,8 @@ func getRanking(team string, saveJson string) {
 	fmt.Printf("Could not find team with name '%s'\n", team)
 }
 
-func getSortedRankings(confederation string, saveFile string) {
-	bytes, err := os.ReadFile("./saves/" + saveFile)
+func getSortedRankings(confederation string, saveJson string) {
+	bytes, err := os.ReadFile(saveJson)
 	if err != nil {
 		log.Fatal(err)
 	}
