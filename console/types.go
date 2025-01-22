@@ -1,18 +1,5 @@
 package main
 
-type RankingTime struct {
-	Timestamp string      `json:"timestamp"`
-	Missing   []string    `json:"missing"`
-	Teams     []SavedTeam `json:"teams"`
-}
-
-type SavedTeam struct {
-	Name          string `json:"name"`
-	FifaCode      string `json:"fifaCode"`
-	Confederation string `json:"confederation"`
-	Points        int    `json:"points"`
-}
-
 type RankingSave struct {
 	SourceTimestamp string      `json:"sourceTimestamp"`
 	Teams           []SavedTeam `json:"teams"`

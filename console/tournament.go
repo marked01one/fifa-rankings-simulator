@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -83,9 +84,7 @@ func (tournament *TournamentJson) PrintContent() {
 }
 
 func (tournament *TournamentJson) SimulateWithSave(saveJson string) {
-	if _, err := os.Stat(saveJson); err != nil {
-		log.Fatal(err)
-	}
+	rankings := getSave(saveJson)
 
 	fmt.Printf("\n%s\n", tournament.Name)
 	fmt.Print("-------------------------\n\n")
@@ -143,28 +142,20 @@ func (tournament *TournamentJson) SimulateWithSave(saveJson string) {
 								scores := strings.Split(scanner.Text(), "-")
 								scoreCount := len(scores)
 								if scoreCount == 2 {
-									homeScore, err := strconv.Atoi(strings.TrimSpace(scores[0]))
-									if err != nil {
-										log.Println("'homeScore' cannot be retrieved!")
-										log.Fatal(err)
-									}
-
-									awayScore, err := strconv.Atoi(strings.TrimSpace(scores[1]))
-									if err != nil {
-										log.Println("'awayScore' cannot be retrieved!")
-										log.Fatal(err)
-									}
-
+									homeResult, awayResult := readResult(scores)
 									// Extract temporary copies of states
 									tempHome := groupStates[gIdx].Teams[homeTeam]
 									tempAway := groupStates[gIdx].Teams[awayTeam]
 
-									if homeScore < awayScore {
+									savedTeamHome, _ := rankings.getTeam(matchup[0])
+									savedTeamAway, _ := rankings.getTeam(matchup[1])
+
+									if homeResult < awayResult {
 										// Case 1: Home team lost
 										tempHome.L++
 										tempAway.W++
 										tempAway.Points += 3
-									} else if homeScore > awayScore {
+									} else if homeResult > awayResult {
 										// Case 2: Home team wins
 										tempAway.L++
 										tempHome.W++
@@ -177,17 +168,40 @@ func (tournament *TournamentJson) SimulateWithSave(saveJson string) {
 										tempHome.Points++
 									}
 
-									tempHome.GF += homeScore
-									tempHome.GA += awayScore
+									tempHome.GF += homeResult
+									tempHome.GA += awayResult
 									tempHome.GD = (tempHome.GF - tempHome.GA)
 
-									tempAway.GF += awayScore
-									tempAway.GA += homeScore
+									tempAway.GF += awayResult
+									tempAway.GA += homeResult
 									tempAway.GD = (tempAway.GF - tempAway.GA)
 
 									// Re-assigns team state copies
 									groupStates[gIdx].Teams[homeTeam] = tempHome
 									groupStates[gIdx].Teams[awayTeam] = tempAway
+
+									homeWeight, awayWeight := getResultWeights(homeResult, awayResult, "")
+									fmt.Printf("%d\n", stage.Importance)
+
+									homePoints := int(calculateResult(savedTeamHome.Points, savedTeamAway.Points, stage.Importance, homeWeight))
+									awayPoints := int(calculateResult(savedTeamAway.Points, savedTeamHome.Points, stage.Importance, awayWeight))
+
+									fmt.Printf("\n%s: %d (%d)\n",
+										savedTeamHome.FifaCode,
+										homePoints,
+										homePoints-savedTeamHome.Points,
+									)
+									fmt.Printf("%s: %d (%d)\n\n",
+										savedTeamAway.FifaCode,
+										awayPoints,
+										awayPoints-savedTeamAway.Points,
+									)
+
+									savedTeamHome.Points = homePoints
+									savedTeamAway.Points = awayPoints
+
+									rankings.updateTeam(savedTeamHome)
+									rankings.updateTeam(savedTeamAway)
 
 									break
 								}
@@ -201,20 +215,22 @@ func (tournament *TournamentJson) SimulateWithSave(saveJson string) {
 				fmt.Printf("Matchday %d Results ----\n\n", i+1)
 
 				for gIdx, group := range groupStates {
+					keysSorted := getSortedKeysFromMap(group.Teams)
+
 					fmt.Printf("---- GROUP %d ----\n", gIdx+1)
 
 					fmt.Println("Team\tW\tL\tD\tGF\tGA\tGD\tPoints")
 
-					for team, teamState := range group.Teams {
+					for _, team := range keysSorted {
 						fmt.Printf("%s\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
 							team,
-							teamState.W,
-							teamState.D,
-							teamState.L,
-							teamState.GF,
-							teamState.GA,
-							teamState.GD,
-							teamState.Points,
+							group.Teams[team].W,
+							group.Teams[team].D,
+							group.Teams[team].L,
+							group.Teams[team].GF,
+							group.Teams[team].GA,
+							group.Teams[team].GD,
+							group.Teams[team].Points,
 						)
 					}
 				}
@@ -258,4 +274,43 @@ func roundRobin(teams []string) [][][]string {
 	}
 
 	return matchdays
+}
+
+func getSortedKeysFromMap(input map[string]GroupStateTeam) []string {
+	output := []string{}
+
+	for key := range input {
+		output = append(output, key)
+	}
+
+	sort.SliceStable(output, func(i, j int) bool {
+		if input[output[i]].Points != input[output[j]].Points {
+			return input[output[i]].Points > input[output[j]].Points
+		}
+
+		if input[output[i]].GD != input[output[j]].GD {
+			return input[output[i]].GD > input[output[j]].GD
+		}
+
+		return input[output[i]].GF > input[output[j]].GF
+
+	})
+
+	return output
+}
+
+func readResult(scores []string) (int, int) {
+
+	homeResult, err := strconv.Atoi(strings.TrimSpace(scores[0]))
+	if err != nil {
+		log.Println("'homeScore' cannot be retrieved!")
+		log.Fatal(err)
+	}
+
+	awayResult, err := strconv.Atoi(strings.TrimSpace(scores[1]))
+	if err != nil {
+		log.Println("'awayScore' cannot be retrieved!")
+		log.Fatal(err)
+	}
+	return homeResult, awayResult
 }

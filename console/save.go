@@ -1,11 +1,46 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
 	"os"
 )
+
+type RankingTime struct {
+	Timestamp string      `json:"timestamp"`
+	Missing   []string    `json:"missing"`
+	Teams     []SavedTeam `json:"teams"`
+}
+
+type SavedTeam struct {
+	Name          string `json:"name"`
+	FifaCode      string `json:"fifaCode"`
+	Confederation string `json:"confederation"`
+	Points        int    `json:"points"`
+}
+
+func (ranking *RankingTime) getTeam(fifaCode string) (SavedTeam, error) {
+	for _, t := range ranking.Teams {
+		if fifaCode == t.FifaCode {
+			return t, nil
+		}
+	}
+
+	return SavedTeam{}, fmt.Errorf("no team found associated with FIFA code '%s'", fifaCode)
+}
+
+func (ranking *RankingTime) updateTeam(team SavedTeam) error {
+	for idx, t := range ranking.Teams {
+		if team.FifaCode == t.FifaCode {
+			ranking.Teams[idx] = team
+			return nil
+		}
+	}
+
+	return fmt.Errorf("no team found associated with FIFA code '%s'", team.FifaCode)
+}
 
 func createSave(saveTimestamp string) string {
 	saves, err := os.ReadDir("./saves")
@@ -57,4 +92,24 @@ func copyTimestamp(source, destination string) {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func getSave(saveJson string) RankingTime {
+	if _, err := os.Stat(saveJson); err != nil {
+		log.Fatal(err)
+	}
+
+	rankings := RankingTime{}
+
+	bytes, err := os.ReadFile(saveJson)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err = json.Unmarshal(bytes, &rankings); err != nil {
+		log.Fatal(err)
+	}
+
+	return rankings
 }

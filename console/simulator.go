@@ -18,20 +18,12 @@ func (a ByPoint) Len() int           { return len(a) }
 func (a ByPoint) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a ByPoint) Less(i, j int) bool { return a[i].Points > a[j].Points }
 
-func simulate(saveFile string, noSave bool) {
+func simulate(saveJson string, noSave bool) {
 	if noSave {
 		fmt.Println("WARNING: Simulator is running in no-save mode!")
 	}
 
-	bytes, err := os.ReadFile(saveFile)
-	if err != nil {
-		log.Fatal(err)
-	}
-	var rankings RankingTime
-	err = json.Unmarshal(bytes, &rankings)
-	if err != nil {
-		log.Fatal(err)
-	}
+	rankings := getSave(saveJson)
 
 	var importance int = 0
 	scanner := bufio.NewScanner(os.Stdin)
@@ -116,7 +108,7 @@ func simulate(saveFile string, noSave bool) {
 			fmt.Scanln(&penalties)
 		}
 
-		homeResult, awayResult := getResultWeights(result[0], result[2], penalties)
+		homeResult, awayResult := getResultWeightsBytes(result[0], result[2], penalties)
 
 		if isKnockout != "" {
 			if homeResult == 0 {
@@ -157,7 +149,7 @@ func simulate(saveFile string, noSave bool) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = os.WriteFile(saveFile, file, 0644)
+	err = os.WriteFile(saveJson, file, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -215,14 +207,14 @@ func getSortedRankings(confederation string, saveJson string) {
 
 }
 
-func calculateResult(home, away, importance int, result float64) float64 {
-	ratingDiff := (float64(home) - float64(away)) / 600 * -1
+func calculateResult(home int, away int, importance int, result float64) float64 {
+	ratingDiff := float64(home-away) / 600 * -1
 	expected := 1 / (math.Pow(10, ratingDiff) + 1)
 	finalResult := float64(home) + float64(importance)*(result-expected)
-	return math.Round(finalResult)
+	return finalResult
 }
 
-func getResultWeights(home, away byte, penalties string) (float64, float64) {
+func getResultWeightsBytes(home, away byte, penalties string) (float64, float64) {
 	homeScore, _ := strconv.Atoi(string(home))
 	awayScore, _ := strconv.Atoi(string(away))
 
@@ -231,6 +223,25 @@ func getResultWeights(home, away byte, penalties string) (float64, float64) {
 	}
 
 	if awayScore > homeScore {
+		return 0, 1
+	}
+
+	switch penalties {
+	case "0":
+		return 0.75, 0.5
+	case "1":
+		return 0.5, 0.75
+	}
+
+	return 0.5, 0.5
+}
+
+func getResultWeights(home, away int, penalties string) (float64, float64) {
+	if home > away {
+		return 1, 0
+	}
+
+	if away > home {
 		return 0, 1
 	}
 
